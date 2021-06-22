@@ -1,3 +1,5 @@
+import "react-native-gesture-handler";
+
 import React from "react";
 import { StatusBar } from "react-native";
 
@@ -21,6 +23,7 @@ import theme from "./src/global/theme";
 import { SignIn } from "./src/screens/SignIn";
 import { Background } from "./src/components/Background";
 import { Home } from "./src/screens/Home";
+import { Routes } from "./src/routes";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -40,7 +43,7 @@ export default function App() {
           backgroundColor="transparent"
           translucent={true}
         />
-        <Home />
+        <Routes />
       </Background>
     </ThemeProvider>
   );
