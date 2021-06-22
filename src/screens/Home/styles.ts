@@ -15,8 +15,6 @@ export const Header = styled.View`
 
   padding: ${RFValue(40)}px ${RFValue(24)}px;
   padding-top: ${RFValue(56)}px;
-
-  position: absolute;
 `;
 
 export const UserInfoContainer = styled.View`
