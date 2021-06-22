@@ -1,7 +1,4 @@
 import React from "react";
-
-import { StatusBar } from "react-native";
-
 import { Button } from "../../components/Button";
 
 import IllustrationPNG from "../../assets/illustration.png";
@@ -11,13 +8,7 @@ import { Container, ImageBG, Content, Title, Subtitle } from "./styles";
 export function SignIn() {
   return (
     <Container>
-      <ImageBG source={IllustrationPNG} resizeMode="stretch" />
-
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor="transparent"
-        translucent={true}
-      />
+      <ImageBG source={IllustrationPNG} />
 
       <Content>
         <Title>

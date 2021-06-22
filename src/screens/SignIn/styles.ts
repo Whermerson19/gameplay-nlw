@@ -5,8 +5,6 @@ export const Container = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
-
-  background-color: ${(props) => props.theme.colors.background};
 `;
 
 export const ImageBG = styled.Image`
@@ -22,7 +20,7 @@ export const Content = styled.View`
 
 export const Title = styled.Text`
   font-size: ${RFValue(40)}px;
-  font-weight: bold;
+  font-family: ${(props) => props.theme.fonts.rajdhani_bold};
   color: ${(props) => props.theme.colors.heading};
 
   text-align: center;
@@ -33,6 +31,8 @@ export const Title = styled.Text`
 export const Subtitle = styled.Text`
   font-size: ${RFValue(15)}px;
   color: ${(props) => props.theme.colors.heading};
+
+  font-family: ${(props) => props.theme.fonts.inter_regular};
 
   text-align: center;
 

@@ -1,6 +1,37 @@
 import React from "react";
-import { Text } from "react-native";
+import { Avatar } from "../../components/Avatar";
+import { Button } from "../../components/Button";
+
+import {
+  Container,
+  Header,
+  UserInfoContainer,
+  UserInfo,
+  TitleContainer,
+  Title,
+  Username,
+  Subtitle,
+  ButtonContainer,
+} from "./styles";
 
 export function Home() {
-  return <Text>Gameplay app</Text>;
+  return (
+    <Container>
+      <Header>
+        <UserInfoContainer>
+          <Avatar />
+          <UserInfo>
+            <TitleContainer>
+              <Title>Olá,</Title>
+              <Username>Whermerson</Username>
+            </TitleContainer>
+            <Subtitle>Hoje é dia de vitória</Subtitle>
+          </UserInfo>
+        </UserInfoContainer>
+        <ButtonContainer>
+          <Button activeOpacity={0.7} title="+" hasIcon={false} />
+        </ButtonContainer>
+      </Header>
+    </Container>
+  );
 }
