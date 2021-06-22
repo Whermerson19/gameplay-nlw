@@ -29,7 +29,7 @@ export function Home() {
           </UserInfo>
         </UserInfoContainer>
         <ButtonContainer>
-          <Button activeOpacity={0.7} title="+" hasIcon={false} />
+          <Button activeOpacity={0.7} title="+" type="plus" />
         </ButtonContainer>
       </Header>
     </Container>

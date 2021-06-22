@@ -33,6 +33,7 @@ export function SignIn() {
           activeOpacity={0.7}
           title="Entrar com Discord"
           onPress={handleSignIn}
+          type="signIn"
         />
       </Content>
     </Container>

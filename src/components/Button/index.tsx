@@ -1,25 +1,34 @@
 import React from "react";
-
 import { TouchableOpacityProps } from "react-native";
+import { useTheme } from "styled-components";
+
+import { RectButtonProps } from "react-native-gesture-handler";
+
+import { Entypo } from "@expo/vector-icons";
 
 import DiscordPNG from "../../assets/discord.png";
 
 import { Container, Icon, Image, Title } from "./styles";
 
-interface Props extends TouchableOpacityProps {
+interface Props extends RectButtonProps {
   title: string;
-  hasIcon?: boolean;
+  type?: "signIn" | "normal" | "plus";
 }
 
-export function Button({ title, hasIcon = true, ...rest }: Props) {
+export function Button({ title, type = "normal", ...rest }: Props) {
+  const { colors } = useTheme();
+
   return (
     <Container {...rest}>
-      {hasIcon && (
+      {type === "signIn" && (
         <Icon>
           <Image source={DiscordPNG} />
         </Icon>
       )}
-      <Title>{title}</Title>
+      {(type === "normal" || type === "signIn") && <Title>{title}</Title>}
+      {type === "plus" && (
+        <Entypo name="plus" color={colors.heading} size={24} />
+      )}
     </Container>
   );
 }
