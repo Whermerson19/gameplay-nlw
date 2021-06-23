@@ -11,7 +11,6 @@ interface Props extends RectButtonProps {
   isScheduling?: boolean;
   icon: React.FC<SvgProps>;
   title: string;
-  checked?: boolean;
   selected: boolean;
 }
 
@@ -19,7 +18,6 @@ export function Categories({
   isScheduling = false,
   icon: Icon,
   title,
-  checked = false,
   selected,
   ...rest
 }: Props) {
