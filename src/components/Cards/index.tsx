@@ -34,11 +34,11 @@ interface DataProps {
 
 interface Props extends RectButtonProps {
   type: "profile" | "scheduled" | "scheduling";
-
+  username?: string;
   data: DataProps;
 }
 
-export function Cards({ data, ...rest }: Props) {
+export function Cards({ username, type, data, ...rest }: Props) {
   const theme = useTheme();
 
   return (

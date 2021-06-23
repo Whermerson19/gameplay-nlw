@@ -6,8 +6,6 @@ import { LinearGradient } from "expo-linear-gradient";
 
 export const LinearContainer = styled(LinearGradient)`
   width: 100%;
-
-  position: absolute;
 `;
 
 export const Container = styled.View`
@@ -17,7 +15,7 @@ export const Container = styled.View`
   align-items: center;
   justify-content: space-between;
 
-  padding: ${RFValue(40)}px ${RFValue(24)}px;
+  padding: ${RFValue(24)}px;
   padding-top: ${RFValue(56)}px;
 `;
 

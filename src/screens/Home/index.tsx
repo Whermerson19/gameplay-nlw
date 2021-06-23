@@ -98,7 +98,7 @@ export function Home() {
     <Container>
       <Header>
         <UserInfoContainer>
-          <Avatar />
+          <Avatar avatarURL="https://github.com/Whermerson19.png" />
           <UserInfo>
             <TitleContainer>
               <Title>Olá,</Title>

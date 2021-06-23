@@ -16,6 +16,8 @@ export const Header = styled.View`
 
   align-items: center;
   justify-content: space-between;
+
+  margin-bottom: 10px;
 `;
 
 export const Title = styled.Text`
