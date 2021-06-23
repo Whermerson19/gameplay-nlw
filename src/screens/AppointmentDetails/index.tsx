@@ -3,6 +3,8 @@ import { FlatList } from "react-native";
 
 import { Header } from "../../components/Header";
 import { CardsContainer } from "../../components/CardsContainer";
+import { ProfileCards } from "../../components/ProfileCards";
+import { Button } from "../../components/Button";
 
 import Banner from "../../assets/banner.png";
 
@@ -12,8 +14,8 @@ import {
   InfoContainer,
   Title,
   Subtitle,
+  Footer,
 } from "./styles";
-import { ProfileCards } from "../../components/ProfileCards";
 
 const profiles = [
   {
@@ -56,6 +58,9 @@ export function AppointmentDetails() {
           renderItem={({ item }) => <ProfileCards data={item} />}
         />
       </CardsContainer>
+      <Footer>
+        <Button title="Entrar na partida" type="signIn" />
+      </Footer>
     </Container>
   );
 }

@@ -28,3 +28,8 @@ export const Subtitle = styled.Text`
   font-family: ${(props) => props.theme.fonts.inter_regular};
   color: ${(props) => props.theme.colors.highlight};
 `;
+
+export const Footer = styled.View`
+  padding: ${RFValue(24)}px;
+  width: 100%;
+`;
