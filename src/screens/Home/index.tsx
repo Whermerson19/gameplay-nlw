@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState, useCallback } from "react";
 import { ScrollView, View, FlatList } from "react-native";
 
@@ -55,10 +56,34 @@ const cards = [
       category: "1x1",
     },
   },
+  {
+    id: "4",
+    guild: {
+      id: "4",
+      title: "Rumo ao topo",
+      date: "18/06 às 21:00h",
+      owner: false,
+      icon: null,
+      category: "1x1",
+    },
+  },
+  {
+    id: "5",
+    guild: {
+      id: "5",
+      title: "Rumo ao topo",
+      date: "18/06 às 21:00h",
+      owner: false,
+      icon: null,
+      category: "1x1",
+    },
+  },
 ];
 
 export function Home() {
   const [categorySelectedId, setCategorySelectedId] = useState("");
+
+  const navigation = useNavigation();
 
   const handleCategoryCardSelect = useCallback(
     (id: string) => {
@@ -112,7 +137,14 @@ export function Home() {
         <FlatList
           data={cards}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <Cards type="scheduled" data={item} />}
+          renderItem={({ item }) => (
+            <Cards
+              type="scheduled"
+              data={item}
+              onPress={() => navigation.navigate("AppointmentDetails")}
+            />
+          )}
+          showsVerticalScrollIndicator={false}
         />
       </CardsContainer>
     </Container>

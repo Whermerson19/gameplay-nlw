@@ -8,6 +8,7 @@ interface PermissionProps {
 }
 
 export const Container = styled(RectButton)`
+  flex: 1;
   width: 100%;
 
   flex-direction: row;
