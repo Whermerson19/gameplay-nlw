@@ -94,6 +94,10 @@ export function Home() {
     [categorySelectedId]
   );
 
+  const handleAppointmentCreate = useCallback(() => {
+    navigation.navigate("AppointmentCreate");
+  }, [navigation]);
+
   return (
     <Container>
       <Header>
@@ -108,7 +112,12 @@ export function Home() {
           </UserInfo>
         </UserInfoContainer>
         <ButtonContainer>
-          <Button activeOpacity={0.7} title="+" type="plus" />
+          <Button
+            activeOpacity={0.7}
+            title="+"
+            type="plus"
+            onPress={handleAppointmentCreate}
+          />
         </ButtonContainer>
       </Header>
 

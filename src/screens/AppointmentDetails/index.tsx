@@ -56,6 +56,7 @@ export function AppointmentDetails() {
           data={profiles}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => <ProfileCards data={item} />}
+          showsVerticalScrollIndicator={false}
         />
       </CardsContainer>
       <Footer>

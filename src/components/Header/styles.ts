@@ -27,6 +27,9 @@ export const Title = styled.Text`
   font-size: ${RFValue(20)}px;
   color: ${(props) => props.theme.colors.heading};
   font-family: ${(props) => props.theme.fonts.rajdhani_bold};
+
+  flex: 1;
+  text-align: center;
 `;
 
 export const SharedIcon = styled(Entypo)`
