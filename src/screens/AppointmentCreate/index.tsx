@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Platform } from "react-native";
 import {
   View,
@@ -9,9 +9,14 @@ import {
 
 import { Button } from "../../components/Button";
 import { Categories } from "../../components/Categories";
+import { GuildProps } from "../../components/Guild";
 import { Header } from "../../components/Header";
+import { ModalView } from "../../components/ModalView";
 import { SmallInput } from "../../components/SmallInput";
 import { TextArea } from "../../components/TextArea";
+import { Guilds } from "../Guilds";
+import { GuildIcon } from "../../components/GuildIcon";
+
 import { categories } from "../../utils/categories";
 
 import {
@@ -37,6 +42,9 @@ import {
 export function AppointmentCreate() {
   const [categorySelectedId, setCategorySelectedId] = useState("");
 
+  const [modalVisibility, setModalVisibility] = useState(false);
+  const [guild, setGuild] = useState<GuildProps>({} as GuildProps);
+
   const handleCategoryCardSelect = useCallback(
     (id: string) => {
       categorySelectedId === id
@@ -45,6 +53,20 @@ export function AppointmentCreate() {
     },
     [categorySelectedId]
   );
+
+  const handleOpenModal = useCallback(() => {
+    setModalVisibility(true);
+  }, []);
+
+  const handleGuildSelect = useCallback((guild: GuildProps) => {
+    console.log("click");
+    setGuild(guild);
+    setModalVisibility(false);
+  }, []);
+
+  useEffect(() => {
+    console.log(guild);
+  }, [guild]);
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -84,10 +106,20 @@ export function AppointmentCreate() {
 
             <FormInputs>
               <SelectServer>
-                <EmptyGuildIcon />
-                <Label>Selecione um servidor</Label>
+                {guild.image ? (
+                  <GuildIcon image={guild.image} />
+                ) : (
+                  <EmptyGuildIcon />
+                )}
+                <Label>
+                  {guild.title ? guild.title : "Selecione um servidor"}
+                </Label>
                 <SelectButtonContainer>
-                  <ArrowRight name="chevron-right" size={18} />
+                  <ArrowRight
+                    name="chevron-right"
+                    size={18}
+                    onPress={handleOpenModal}
+                  />
                 </SelectButtonContainer>
               </SelectServer>
 
@@ -136,6 +168,10 @@ export function AppointmentCreate() {
             </Footer>
           </FormContent>
         </Container>
+
+        <ModalView visible={modalVisibility}>
+          <Guilds handleGuildSelect={handleGuildSelect} />
+        </ModalView>
       </ScrollView>
     </TouchableWithoutFeedback>
   );
