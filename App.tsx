@@ -18,11 +18,11 @@ import {
   Rajdhani_700Bold,
 } from "@expo-google-fonts/rajdhani";
 
+import { AuthProvider } from "./src/hooks/auth";
+
 import theme from "./src/global/theme";
 
-import { SignIn } from "./src/screens/SignIn";
 import { Background } from "./src/components/Background";
-import { Home } from "./src/screens/Home";
 import { Routes } from "./src/routes";
 
 export default function App() {
@@ -43,7 +43,9 @@ export default function App() {
           backgroundColor="transparent"
           translucent={true}
         />
-        <Routes />
+        <AuthProvider>
+          <Routes />
+        </AuthProvider>
       </Background>
     </ThemeProvider>
   );

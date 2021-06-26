@@ -19,7 +19,6 @@ export function AuthRoutes() {
         },
       }}
     >
-      <AuthStack.Screen name="SignIn" component={SignIn} />
       <AuthStack.Screen name="Home" component={Home} />
       <AuthStack.Screen
         name="AppointmentDetails"

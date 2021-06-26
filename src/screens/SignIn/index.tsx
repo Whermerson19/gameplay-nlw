@@ -1,5 +1,7 @@
 import React, { useCallback } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { Alert, ActivityIndicator } from "react-native";
+
+import { useAuth } from "../../hooks/auth";
 
 import { Button } from "../../components/Button";
 
@@ -8,11 +10,15 @@ import IllustrationPNG from "../../assets/illustration.png";
 import { Container, ImageBG, Content, Title, Subtitle } from "./styles";
 
 export function SignIn() {
-  const navigation = useNavigation();
+  const { signIn, loading } = useAuth();
 
-  const handleSignIn = useCallback(() => {
-    navigation.navigate("Home");
-  }, [navigation]);
+  const handleSignIn = useCallback(async () => {
+    try {
+      await signIn();
+    } catch (err) {
+      Alert.alert(err);
+    }
+  }, []);
 
   return (
     <Container>
@@ -29,12 +35,16 @@ export function SignIn() {
           favoritos com seus amigos
         </Subtitle>
 
-        <Button
-          activeOpacity={0.7}
-          title="Entrar com Discord"
-          onPress={handleSignIn}
-          type="signIn"
-        />
+        {loading ? (
+          <ActivityIndicator />
+        ) : (
+          <Button
+            activeOpacity={0.7}
+            title="Entrar com Discord"
+            onPress={handleSignIn}
+            type="signIn"
+          />
+        )}
       </Content>
     </Container>
   );

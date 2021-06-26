@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Platform } from "react-native";
 import {
   View,
@@ -58,15 +58,14 @@ export function AppointmentCreate() {
     setModalVisibility(true);
   }, []);
 
-  const handleGuildSelect = useCallback((guild: GuildProps) => {
-    console.log("click");
-    setGuild(guild);
+  const handleCloseModal = useCallback(() => {
     setModalVisibility(false);
   }, []);
 
-  useEffect(() => {
-    console.log(guild);
-  }, [guild]);
+  const handleGuildSelect = useCallback((guild: GuildProps) => {
+    setGuild(guild);
+    setModalVisibility(false);
+  }, []);
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -169,7 +168,7 @@ export function AppointmentCreate() {
           </FormContent>
         </Container>
 
-        <ModalView visible={modalVisibility}>
+        <ModalView onClose={handleCloseModal} visible={modalVisibility}>
           <Guilds handleGuildSelect={handleGuildSelect} />
         </ModalView>
       </ScrollView>

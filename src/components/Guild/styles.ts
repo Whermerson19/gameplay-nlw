@@ -8,13 +8,12 @@ export const Container = styled(TouchableOpacity)`
   width: 100%;
   flex-direction: row;
 
-  /* background-color: ${(props) => props.theme.colors.on}; */
-  margin-top: ${RFValue(20)}px;
+  margin-top: ${RFValue(25)}px;
 `;
 
 export const InfoContainer = styled.View`
-  /* width: 100%;
-  height: ${RFValue(64)}px; */
+  flex: 1;
+  height: ${RFValue(64)}px;
 
   flex-direction: row;
   align-items: center;
@@ -26,10 +25,7 @@ export const InfoContainer = styled.View`
   padding: 8px 0;
 `;
 
-export const Infos = styled.View`
-  /* width: 100%;
-  height: ${RFValue(64)}px; */
-`;
+export const Infos = styled.View``;
 
 export const Title = styled.Text`
   font-size: ${RFValue(18)}px;

@@ -7,6 +7,7 @@ import { Button } from "../../components/Button";
 import { Cards } from "../../components/Cards";
 import { CardsContainer } from "../../components/CardsContainer";
 import { Categories } from "../../components/Categories";
+import { useAuth } from "../../hooks/auth";
 
 import { categories } from "../../utils/categories";
 
@@ -81,6 +82,8 @@ const cards = [
 ];
 
 export function Home() {
+  const { user } = useAuth();
+
   const [categorySelectedId, setCategorySelectedId] = useState("");
 
   const navigation = useNavigation();
@@ -102,11 +105,11 @@ export function Home() {
     <Container>
       <Header>
         <UserInfoContainer>
-          <Avatar avatarURL="https://github.com/Whermerson19.png" />
+          <Avatar avatarURL={user.avatar} />
           <UserInfo>
             <TitleContainer>
               <Title>Olá,</Title>
-              <Username>Whermerson</Username>
+              <Username>{user.firstName}</Username>
             </TitleContainer>
             <Subtitle>Hoje é dia de vitória.</Subtitle>
           </UserInfo>

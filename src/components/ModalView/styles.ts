@@ -15,7 +15,7 @@ export const Overlay = styled.View`
 
 export const Content = styled.View`
   flex: 1;
-  margin-top: ${RFValue(80)}px;
+  margin-top: ${RFValue(120)}px;
 `;
 
 export const Bar = styled.View`
@@ -28,4 +28,5 @@ export const Bar = styled.View`
 
   align-self: center;
   margin-top: ${RFValue(15)}px;
+  margin-bottom: ${RFValue(70)}px;
 `;

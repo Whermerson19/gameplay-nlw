@@ -3,8 +3,6 @@ import React from "react";
 import { FlatList } from "react-native";
 import { Guild, GuildProps } from "../../components/Guild";
 
-import { Container } from "./styles";
-
 const guilds = [
   {
     id: "1",
